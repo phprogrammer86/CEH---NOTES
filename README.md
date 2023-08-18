@@ -1,7 +1,6 @@
 # CEH---NOTES
 Notes about CEH PRACTICAL EXAM
 
-<img src="CEH-PRACTICAL-9-7-2022 (1).png" />  
                                                                                                                           
 # Reconnasiance/Footprinting
 <details>
