@@ -539,8 +539,7 @@ https://cutt.ly/ceh-practical-git-udy
 
 	–> TCP – Porta padrão de acesso ao Miniserv / Webmin httpd. 
 
-
- # Links
+# Links
 <details>
 <summary>Links para consulta</summary>
 
