@@ -464,7 +464,9 @@ Add GIF98 and upload and rename .php.jgp
 ## CEH Practical Exam Questions:
 https://cutt.ly/ceh-practical-git-udy
 
-> Ports
+# Portas
+<details>
+<summary>All Ports</summary>
 
 ### Porta 17
 
