@@ -464,4 +464,16 @@ Add GIF98 and upload and rename .php.jgp
 ## CEH Practical Exam Questions:
 https://cutt.ly/ceh-practical-git-udy
 
-Contact Me📨 for In-person Training/Queries: sendmehi@outlook.com
+## Ports
+
+### Porta 17
+
+	–>QOTD – TCP/UDP – O Serviço de Mensagem do dia (Quote Of The Day) é alvo de Trojans.
+
+### Porta 19
+
+	–> Chargen – TCP/UDP – Chargen é um protocolo de comunicação muito vulnerável, que é usado para amplificar os ataques DdoS, que é um ataque distribuído de negação de serviço.
+
+### Porta 21
+
+	–> FTP – TCP – É utilizado  o FTP que permite que computadores dentro de uma rede promovam trocas de arquivos em massa
