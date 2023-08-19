@@ -464,7 +464,7 @@ Add GIF98 and upload and rename .php.jgp
 ## CEH Practical Exam Questions:
 https://cutt.ly/ceh-practical-git-udy
 
-## Ports
+> Ports
 
 ### Porta 17
 
@@ -477,3 +477,62 @@ https://cutt.ly/ceh-practical-git-udy
 ### Porta 21
 
 	–> FTP – TCP – É utilizado  o FTP que permite que computadores dentro de uma rede promovam trocas de arquivos em massa
+
+ ### Porta 22
+
+	–> SSH – TCP/UDP – É uma porta padrão para acesso remoto (normalmente baseados em sistemas LINUX).
+	-> Para acesso as configurações ssh do servidor -> /etc/ssh/sshd_config
+	-> Dentro das configurações pode ser alterado o numero da porta, tipos de conexão e etc, é uma boa prática de segurança que o usuário root esteja desabilitado a se autenticar via ssh.
+	-> Um scan de portas com nmap normalmente acha o serviço ssh, mas atanção a alteração de numero de portas que é possível dentro das configurações, geralmente tambem é usada a porta 2222.
+	 -> Dentro do diretorio root existe uma pasta oculta .ssh, onde ficam alguns arquivos, dentre eles o authorized_keys onde ficam as chaves autorizadas para conexão direta e o arquivo know_hosts onde ficam os fingerprints dos hosts que já tentaram conexão com esse servidor
+
+### Porta 23
+
+	–> Telnet – TCP/UDP – Telnet é um protocolo de comunicação que permite a execução remota de códigos maliciosos.
+
+### Porta 67 | 68
+
+	–> DHCP Server e Client – Pelo serviço DHCP é possível fazer uma configuração automática e dinâmica de computadores que estejam ligados a uma rede TCP/IP.
+
+### Porta 111
+
+	–> Portmap – TCP/UDP – O serviço portmap é um daemon (programa executado em background) para serviços RPC, como o NIS e o NFS, que pode autorizar a execução de códigos maliciosos.
+
+### Porta 123
+
+	–> NTP – UDP – O NTP é um protocolo para sincronizar relógios de computadores e equipamentos de rede, e pode ser vulnerável a servidores de NTP não confiáveis.
+
+### Portas 135 | 136 | 137 | 138 | 139 
+
+	–> Microsoft NetBios – TCP UDP – Estas portas são utilizadas no SO Windows para compartilhamento de arquivos e impressoras.
+
+### Portas 161 | 162
+
+	–> SNMP – TCP/UDP – As portas acima estão associadas com o protocolo de monitoramento SNMP, que devido a diversas vulnerabilidades, devem ser bloqueados na entrada, mas permitida a sua saída.
+
+### Porta 1433
+
+	–> ms-sql – TCP/UDP – Porta padrão de acesso ao SQL Server.
+
+### Porta 1900 
+
+	–> SSDP – UDP – O SSDP é um protocolo de descoberta de serviço com diversas vulnerabilidades. devem ser bloqueados na entrada, mas permitida a sua saída.
+
+### Porta 3306 
+
+	–> MYSQL – TCP/UDP – Porta padrão de acesso ao Mysql Server
+
+### Porta 3389
+
+	–> RDP – TCP/UDP – O RDP é um protocolo multi-canal que permite a conexão entre computadores remotamente, e que pode ser usado de maneira maliciosa. Quando aberta e se voce tem uma credencial pode usar o RDESKTOP do kali para acessar a maquina remotamente
+
+### Porta 5353
+
+	–> mDNS – UDP – O mDNS é um protocolo multi-canal que resolve a resolução de nomes de computadores em pequenas redes e possui enormes vulnerabilidades.
+
+### Porta 5900
+
+	–> VCN – TCP/UDP – O serviço VNC (Virtual Network Computing) pode permitir acesso indesejado ao computador que têm esse serviço habilitado,  podendo ser usado para ataques ou roubo de informações,
+### Porta 10000
+
+	–> TCP – Porta padrão de acesso ao Miniserv / Webmin httpd. 
