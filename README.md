@@ -538,6 +538,8 @@ https://cutt.ly/ceh-practical-git-udy
 ### Porta 10000
 
 	–> TCP – Porta padrão de acesso ao Miniserv / Webmin httpd. 
+</details>
+
 
 # Links
 <details>
