@@ -483,6 +483,10 @@ Questão sobre achar credenciais, pass e senha:
 *http.request.method == POST   (for passwords) or click tools ---> credentials
 Also - Abrir no follow  - tcp stream para ver melhor*
 
+Para vbuscar por senhas, credenciais, usar
+
+http.request.method==POST
+
 ## Web Applications Haking
 
 Criar shells
@@ -922,7 +926,8 @@ Ghidra -> soft eng. reversa, disassembler
 	Use hashcalc
 
 	Decrypt the hidden volume and find secret file
-	Use veracrypt
+	Use veracrypt, pegar arquivo dado e fazer um mount dentro do programa e usar a senha dada
+ 	abrir o drive que voce escolheu d: c: k: e etc..e pegar o arquivo que esta dentro dele.
 
 	Crack the givem hash
 	Use hashes.com to crack wasy the hash
@@ -1050,7 +1055,7 @@ Achando o FQDN com nmap, porta 389 ldap:
 # My ceh practical notes
 #  Scanning Networks (always do sudo su) --> To be root
 ```
-1- Nmap scan for alive/active hosts command for 192.189.19.18- nmap -A 192.189.19.0/24 or nmap -T4 -A ip
+1- Nmap scan for alive/active hosts command for nmap -sn 000.00.0.0/24
 2- Zenmap/nmap command for TCP scan- First put the target ip in the Target: and then in the Command: put this command- nmap -sT -v 10.10.10.16
 3- Nmap scan if firewall/IDS is opened, half scan- nmap -sS -v 10.10.10.16 
 If even this the above command is not working then use this command-  namp -f 10.10.10.16
