@@ -1632,3 +1632,19 @@ https://github.com/payloadbox/sql-injection-payload-list
 -w: Don’t stop on WARNING messages. 
 -X / -x: exmplo: dirb https//globo.com/ -X.php (para extensao php) 
 -z: Add a milliseconds delay to not cause excessive Flood.
+
+
+ssh meu_usuario@000.000.0.0
+
+	Mobile 1 Firstly, After the initial Scan through Nmap we can determine the IP Address of a Android device, so we to connect the device using ADB command and retrieve the file
+	Secondly, Enter the below commands and connect to the Android and access the file
+	adb connect 000.000.0.0:5555
+	adb devices -l
+	adb shell
+	cd SD Card
+	ls 
+	cat file.txt
+
+
+convert tcp wireshark
+Youtube Link:https://www.youtube.com/watch?v=bDcz4qIpiQ4&ab_channel=InfoVault
