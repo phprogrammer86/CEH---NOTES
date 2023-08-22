@@ -1967,3 +1967,12 @@ Please enter output file name:
 
 Please enter the inteface name to listen(Default eth0):
 eth0
+
+
+hydra com ssh
+
+Command: hydra -L wordlist/userlist.txt -P wordlist/passlist.txt 000.000.0.0 ssh
+
+
+powershell
+Start-Process -FilePath "Caminho\para\seu\programa.exe"
