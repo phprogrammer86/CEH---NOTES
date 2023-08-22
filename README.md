@@ -1576,4 +1576,59 @@ https://www.reddit.com/r/CEH/comments/dfa1y8/passed_ceh_practical/
 
 https://www.reddit.com/r/CEH/comments/cgualo/ceh_practical_tell_me_about_it/
 
-https://www.reddit.com/r/CEH/comments/c69fou/passed_ceh_practicalpost_exam_writeup/
+https://www.reddit.com/r/CEH/comments/c69fou/passed_ceh_practicalpost_exam_writeup/.....
+
+
+comando find
+
+find /caminho/do/diretorio -type f -name "meu_programa" -executable
+find /caminho/do/diretorio -type f -executable
+find . -type f -name "*.txt"
+find /caminho/do/diretorio -type f -name "secreto.txt"
+find / -type f -name "secrets.txt"
+
+
+nmap -p- --top-ports 1000 172.164.0.0/24 
+nmap -A -T4 -p- 172.164.0.0/24 (agressivo e busca por vulns)
+
+sqlmap -u URL_DO_SITE --dbs
+sqlmap -u URL_DO_SITE -D nome_do_banco --tables
+
+payloads para sqli 
+https://github.com/payloadbox/sql-injection-payload-list
+
+ Automatiza os testes de SqlInjection
+ 
+>> sqlmap -u "host exmp: 172.15.5.6/pasta/naose.php?loja.sp" (aqui voce pede --current-user --passwords --users, --columns, e etc.)
+>> 
+	sqlmap -u "host exmp: 172.15.5.6/pasta/naose.php?loja.sp" -D nomedobando -T tabela -C coluna -- dump
+
+## Ferramenta FFUF
+
+* sintaxe -> através do IP voce pode encontrar diretórios, usa qualquer wordlist -w. após a wordlist usando -e voce pode especificar o tipo de arquivo, ex: (.sh, .cgi, .pl, .py entre outros). O "/FUZZ é aonde ele vai incluir o diretorio que achar no recon"
+
+-> ffuf -u http://10.10.10.56/FUZZ -w /usr/share/wordlists/dirb/common.txt
+
+## DIRB 
+
+* Faz brute force em arquivos e diretorios de um site, e da para escolher as listas que ele tem de nomes, ex:
+
+	dirb http://businesscorp.com.br /usr/share/dirb/wordlists/(ai tem a big.txt, small.txt    e etc..se nao colocar nada ele roda a comum), lista das funções abaixo 
+
+-c: Set a cookie for the HTTP request. 
+-f: Fine tunning of NOT_FOUND (404) detection. 
+-H: Add a custom header to the HTTP request. 
+-i: Use case-insensitive search. 
+-l: Print “Location” header when found. 
+-N: Ignore responses with this HTTP code. 
+-o: Save output to disk. 
+-p: Use this proxy. (Default port is 1080) 
+-P: Proxy Authentication.
+-r: Don’t search recursively.
+-R: Interactive recursion. (Asks for each directory) 
+-S: Silent Mode. Don’t show tested words. (For dumb terminals) -t: Don’t force an ending ‘/’ on URLs. 
+-u: HTTP Authentication.
+-v: Show also NOT_FOUND pages. 
+-w: Don’t stop on WARNING messages. 
+-X / -x: exmplo: dirb https//globo.com/ -X.php (para extensao php) 
+-z: Add a milliseconds delay to not cause excessive Flood.
