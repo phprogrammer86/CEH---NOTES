@@ -896,7 +896,7 @@ IDA -> disassembler
 OllyDbg -> disassembler, debbuger. Viem -> logs, e view -> executable modules para ver logs e modulos executaveis
 
 Ghidra -> soft eng. reversa, disassembler
-### Exam Questions
+### Questions?
 
 	How many machines are active?
 	Use netdiscover
