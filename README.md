@@ -397,6 +397,8 @@ Nmap do windows, pode ser usado de forma interativa
 		sudo nmap --script smb-os-discovery.nse ip
 		sudo nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse ip
 
+  ** para quebrar senhas smb.NTLM.txt usar JOHN
+
 ## Network Enumeration
 
 ### TTL
