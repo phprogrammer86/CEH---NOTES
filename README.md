@@ -1644,7 +1644,299 @@ ssh meu_usuario@000.000.0.0
 	cd SD Card
 	ls 
 	cat file.txt
-
+|ls var/www/html/DVWA/hackable/uploads/passcd.txt
 
 convert tcp wireshark
 Youtube Link:https://www.youtube.com/watch?v=bDcz4qIpiQ4&ab_channel=InfoVault
+
+	Firstly, Since the EthicalHacker3 machine is auto logged in, open your parrot terminal and start the Responder tool. responder 
+        -I eth0 ↵
+	Secondly, Go back to EthicalHacker3 and open Run (Win+R) , type and path Eg://1.1.1.12 and press Enter.
+	Thirdly, Switch to Parrot machine terminal where you can see the Hash value of that machine request.
+	Lastly, To crack that hash, use JohntheRipper john SMB<filename> 
+
+
+El packet sniffing es el proceso de monitorear y capturar todas los paquetes de datos que pasan a través de una red dada usando una aplicación de software o un dispositivo de hardware.
+
+Los módulos anteriores enseñaron cómo dañar los sistemas de destino al infectarlos con malware, lo que brinda
+un control limitado o total de los sistemas de destino para realizar una mayor filtración de datos.
+
+Ahora, como hacker ético o pen tester, es importante comprender la detección de redes. La detección de
+paquetes permite a una persona observar y acceder a todo el tráfico de la red desde un punto determinado.
+Supervisa cualquier bit de información que entra o sale de la red. Hay dos tipos de olfateo: pasivo y activo. La detección pasiva se refiere a la detección en una red basada en hub; la detección activa se refiere a la detección en una red basada en conmutadores. Si bien el sniffing pasivo alguna vez fue predominante, se implementó una arquitectura de seguridad de red adecuada (red basada en conmutadores) para mitigar este tipo de ataque. Sin embargo, existen algunas lagunas en la implementación de redes basadas en conmutadores que pueden abrir puertas para que un atacante detecte el tráfico de la red.
+
+Los atacantes piratean la red utilizando sniffers, donde se dirigen principalmente a los protocolos vulnerables
+al sniffing. Algunos de estos protocolos vulnerables incluyen HTTP, FTP, SMTP, POP, Telnet, IMAP y NNTP.
+El tráfico rastreado comprende datos como contraseñas de FTP y Telnet, sesiones de chat, correo electrónico
+y tráfico web, y tráfico DNS. Una vez que los atacantes obtienen dicha información confidencial, pueden
+intentar suplantar las sesiones del usuario objetivo.
+Por lo tanto, un hacker ético o un pen tester necesita evaluar la seguridad de la infraestructura de la red, encontrar las lagunas en la red utilizando varias herramientas de auditoría de red y repararlas para garantizar un entorno de red seguro.
+
+Los laboratorios de este módulo brindan experiencia en tiempo real en la realización de la detección de paquetes en la red de destino utilizando diversas técnicas y herramientas de detección de paquetes.
+
+
+La principal diferencia entre un concentrador y un conmutador es que un concentrador transmite datos de línea a cada puerto de la máquina y no tiene asignación de línea, mientras que un conmutador observa la dirección de control de acceso a medios (MAC) asociada con cada marco que pasa a través de él y envía los datos al puerto requerido.
+
+Los detectores de paquetes se utilizan para convertir la NIC del sistema host al modo promiscuo. La NIC en modo promiscuo puede capturar los paquetes dirigidos a la red específica. Hay dos tipos de olfateo. Cada uno se utiliza para diferentes tipos de redes:
+
+- Passive Sniffing: Implica no enviar paquetes. Solo captura y monitorea los paquetes que fluyen en la red.
+
+- Active Sniffing: busca tráfico en una LAN conmutada mediante la inyección activa de tráfico en la LAN; también se refiere a olfatear a través de un switch.
+
+LABORATORIO 1: PERFORM ACTIVE SNIFFING
+
+Se usan varias tecnicas, como MAC flooding, DHCP starvation, ARP poisoning o MITM.  En el Sniffing activo, el trafico ARP es inyectado activamente dentro de la LAN para sniffear alrededor de un switch de red para capturar su trafico. Un packet sniffer puede obtener toda la información visible en la red y registrarla para una revisión futura. Un pentester puede ver toda la información del paquete, incluyendo los datos que deben permanecer ocultos. 
+
+Un ethical hacker necesita asegurarse de que la red de la organización esta segura de varios ataques de sniffing activo, analizando los paquetes entrantes y salientes.
+
+OVERVIEW OF ACTIVE SNIFFING
+
+El sniffing activo envuelve enviar multiples pruebas de red para identificar puntos de acceso. La siguiente es una lista de diferentes técnicas de sniffing activo:
+
+- MAC flooding: Involucra inundar la tabla CAM con pares de direcciones MAC falsas e IP hasta que quede full.
+- DNS poisoning: Requiere engañar a un servidor DNS haciéndole creer que ha recibido una información autentica cuando en realidad no.
+- ARP Poisoning: Es construir un largo numero de solicitudes ARP falsificadas y paquetes de respuesta para sobrecargar un switch.
+- DHCP Attacks: Involucra realizar un ataque DHCP starvation (inanición) y un ataque de rogue (pícaro) DHCP server.
+
+TASK 1: PERFORM MAC FLOODING USING MACOF
+
+MAC flooding es una tecnica usada para comprometer la seguridad de los switches de red que conectan segmentos de red o dispositivos de red. Los atacantes usan la técnica MAC flooding para forzar a un switch a actuar como un hub, y así puedan sniffear el trafico fácilmente.
+
+macof es una herramienta Unix y Linux que es parte de la coleccion dsniff. Inunda la red local con direcciones IP y MAC random, causando que algunos switches fallen y abran en un modo repetitivo, facilitando asi el sniffing. Esta herramienta inunda las tablas CAM del switch (131.000 por minuto) enviando entradas MAC falsificadas. Cuando una tabla MAC se llena, el switch opera como un hub, donde el atacante puede monitorear los datos que se transmiten.
+
+Se activa wireshark para poder ver el trafico entrante y saliente. Y con la herramienta macof se envian paquetes con MAC e IP random para llenar la tabla CAM:
+```
+macof -i [interfaz] -n [times]
+```
+
+
+
+TASK 2: PERFORM A DHCP STARVATION ATTACK USING YERSINIA
+En un ataque DHCP starvation, un atacante inunda el servidor DHCP enviando un gran numero de solicitudes DHCP y usa todas las direcciones IP disponibles que el servidor DHCP puede emitir. Como resultado, el servidor no puede emitir mas direcciones IP, llevando a cabo un ataque DoS. A causa de este error, usuarios validos no pueden obtener o renovar sus IP, y falla el acceso a la red. Este ataque puede ser realizado usando varias herramientas como Yersinia y Hyenae.
+
+Yersinia es una herramienta de red disenada para tomar ventaja de debilidades en diferentes protocolos de red como DHCP. Pretende ser un framework solido para el analisis y prueba de los sitemas y redes desplegados.
+
+
+Se activa Wireshark para ver la red.  Y se activa el modo interactivo de Yersinia:
+```
+yersinia -I
+h [ayuda]
+q [salir]
+F2 [DHCP mode]
+x [ver ataques disponibles]
+
+```
+
+
+
+```
+1 [Sending DISCOVER packet] para empezar el DHCP starvation attack
+```
+
+TASK 3: PERFORM ARP POISONING USING ARPSPOOF
+
+ARP spoofing es un método de atacar una LAN Ethernet. ARP spoofing sucede porque se cambia la direccion IP de la computadora del atacante a la IP de la computadora objetivo. Un paquete de solicitud y respuesta ARP falsificado encuentra un lugar en la memoria caché ARP de destino en este proceso. Como la solicitud ARP ha sido falsificada, la computadora de destino (target) envia las tramas a la computadora del atacante, donde el atacante puede modificarlas antes de enviarlas a la maquina fuente, en un ataque MITM.
+
+arpspoof redireccionar paquetes de un host objetivo (o de todos los hosts) en la LAN a otro host en la LAN, mediante la falsificacion de respuestas ARP. Esta es una forma extremadamente efectiva de hacer sniffing en el trafico de un switch.
+
+
+En el primer comando, se le dice al punto de acceso que la dirección IP del cliente tiene nuestra dirección MAC, así que básicamente, vamos a decirle al punto de acceso que somos el cliente objetivo:
+```
+arpspoof -i [interfaz] -t [ip gateway o AP] [ip target] 
+```
+ 
+Luego se vuelve a ejecutar el comando, pero esta vez se invierten las IP para decirle al cliente que nosotros somos el access point. 
+
+
+En wireshark se recibe una alerta de que la IP esta siendo duplicada.
+
+TASK 4: PERFORM MAN-IN-THE-MIDDLE (MITM) ATTACK USING CAIN & ABEL
+
+Un atacante puede obtener nombres de usuario y contraseñas utilizando varias técnicas o capturando paquetes de datos. Simplemente capturando suficientes paquetes, los atacantes pueden extraer el nombre de usuario y la contraseña de un objetivo si la víctima se autentica en redes públicas, especialmente en sitios web no
+seguros. Una vez que se piratea una contraseña, un atacante puede usar la contraseña para interferir con las
+cuentas de la víctima, como iniciar sesión en la cuenta de correo electrónico de la víctima, iniciar sesión en PayPal
+y vaciar la cuenta bancaria de la víctima, o incluso cambiar la contraseña.
+
+Como medida preventiva, el administrador de una organización debe aconsejar a los empleados que no proporcionen información confidencial mientras se encuentren en redes públicas sin conexiones HTTPS. Se deben usar túneles VPN y SSH para proteger la conexión de red. Un experto hacker ético y probador de penetración (en adelante, pen tester) debe tener sólidos conocimientos de sniffing, protocolos de red y su topología, servicios TCP y UDP, tablas de enrutamiento, acceso remoto (SSH o
+VPN), mecanismos de autenticación y técnicas de encriptación.
+
+Otro método efectivo para obtener nombres de usuario y contraseñas es usar Cain & Abel para realizar ataques MITM.
+Un ataque MITM se utiliza para entrometerse en una conexión existente entre sistemas e interceptar los mensajes que se intercambian. Usando varias técnicas, los atacantes dividen la conexión TCP en dos conexiones: una conexión de cliente a atacante y una conexión de
+atacante a servidor. Después de interceptar con éxito la conexión TCP, el atacante puede leer, modificar e insertar datos fraudulentos en la comunicación interceptada.
+
+Los ataques MITM son variados y pueden llevarse a cabo en una LAN conmutada. Los ataques MITM se pueden
+realizar utilizando varias herramientas, como Cain & Abel.
+Cain & Abel es una herramienta de recuperación de contraseñas que permite la recuperación de contraseñas olfateando el red y descifrar contraseñas cifradas. La función de envenenamiento ARP de la herramienta Cain & Abel implica el envío libre de ARPs falsificados a las víctimas del host de la red. Este ARP falsificado puede hacerlo más fácil atacar a un intermediario.
+
+Aquí, usaremos la herramienta Cain & Abel para realizar un ataque MITM.
+
+Click configure
+
+
+Se pulsa Start y luego en la pestana de Sniffer se selecciona con clic derecho la opcion Scan MAC address
+
+Luego de que se selecciona el area de la red que se quiere escanear, en modo promiscuo, va apareciendo una lista de todas las MAC disponibles con sus respectivas IP.
+
+
+Se presiona la pestana APR abajo.
+
+Se hace clic en el icono + y aparece una ventana de New ARP Poison Routing
+
+EN cada lado se selecciona una IP para monitorear el trafico entre esos dos sistemas.
+
+Ahora se presiona Start APR y el status cambiara de Idle a Poisoning.
+
+Si por ejemplo, se abre una conexion FTP entre el servidor y la maquina Windows 10, ahora se puede observar que en Cain se han capturado paquetes, y ademas, se abre la seccion "Passwords"
+
+TASK 5: SPOOF A MAC ADDRESS USING TMAC AND SMAC
+
+Un ataque de duplicación o suplantación MAC involucra hacer un sniffing a una red para buscar MAC legitimas de clientes conectados a la red. En este ataque, el atacante primero regresas la dirección MAC de clientes quienes están activamente asociados con el puerto del switch. Entonces, el atacante suplanta su propia dirección MAC con la dirección MAC del cliente. Una vez que la suplantacion es exitosa, el atacante recibe todo el trafico destinado a ese cliente. De esta manera, el atacante puede ganar acceso a la red y tomar la identidad del usuario.
+
+Si un administrador no tiene habilidades adecuadas de sniffing de paquetes, esto es fundamental para defenderse contra tales intrusiones. Asi que, un ethical hacker debe conocer como suplantar (spoof) una direccion MAC, hacer sniffing de paquetes y realizar ARP poisoning, network spoofing y DNS poisoning. 
+
+Technitium Mac Address Changer (TMAC)
+
+
+
+Ahora de nuevo MAC spoofing pero con SMAC:
+
+Lo único malo es que cuando es la versión gratuita solo te deja cambiar la dirección MAC por 0C-0C-0C-0C-0C-01.
+
+TASK 6: SPOOF A MAC ADDRESS OF LINUX MACHINE USING MACCHANGER
+
+Una direccion MAC es un numero unico que puede ser asignado a cada interfaz de red, y es usado por varios programas de sistemas y protocolos para identificar una interfaz de red. No es posible cambiar una direccion MAC que está codificado en el NIC (controlador de interfaz de red). Sin embargo, muchos controladores permiten cambiar la dirección MAC. Algunas herramientas pueden hacer creer al sistema operativo que la NIC tiene la dirección MAC elegida por el usuario.
+
+El enmascaramiento de la dirección MAC se conoce como MAC spoofing e implica cambiar la identidad de la computadora.
+
+```
+ifconfig [interfaz] down (tumba la interfaz)
+
+macchanger --help
+
+macchanger -s [interfaz] (muestra la MAC de la interfaz)
+
+macchanger -a [interfaz] (obtiene una MAC del mismo tipo)
+
+macchanger -r [interfaz] (la cambia)
+
+```
+
+
+LABORATORIO 2: PERFORM NETWORK SNIFFING USING VARIOUS SNIFFING TOOLS
+
+Los datos que atraviesan un canal HTTP fluyen en formato de texto sin formato y, por lo tanto, son propensos
+a los ataques MITM. Los administradores de red pueden utilizar rastreadores con fines útiles, como solucionar
+problemas de red, examinar problemas de seguridad y depurar implementaciones de protocolos. Sin embargo,
+un atacante puede usar herramientas de rastreo como Wireshark para rastrear el tráfico que fluye entre
+el cliente y el servidor. 
+
+El tráfico obtenido por el atacante puede contener información confidencial, como credenciales de inicio de sesión, que luego se pueden usar para realizar actividades maliciosas, como la suplantación de la sesión del usuario.
+
+Un atacante necesita manipular la funcionalidad del conmutador para ver todo el tráfico que pasa por él. Un programa de rastreo de paquetes (también conocido como rastreador) solo puede capturar paquetes de datos dentro de una subred determinada, lo que significa que no puede rastrear paquetes de otra red. A menudo, cualquier computadora portátil puede conectarse a una red y obtener acceso a ella. Muchas empresas dejan abiertos los puertos de sus conmutadores. Un rastreador de paquetes colocado en una red en modo promiscuo puede capturar y analizar
+todo el tráfico de la red. Los programas de detección desactivan el filtro empleado por las tarjetas de interfaz de
+red Ethernet (NICS) para evitar que la máquina host vea el tráfico de otras estaciones. Por lo tanto, los programas
+de rastreo pueden ver el tráfico de todos.
+
+La información recopilada en el paso anterior puede ser insuficiente para revelar las vulnerabilidades
+potenciales del objetivo. Puede haber más información para ayudar a encontrar lagunas en el objetivo.
+
+Un hacker ético debe realizar evaluaciones de seguridad de la red y sugerir técnicas adecuadas de solución de problemas para mitigar los ataques. Este laboratorio brinda experiencia práctica sobre cómo usar herramientas de rastreo para rastrear el tráfico de la red y capturarlo en una interfaz remota.
+
+TASK 1: PERFORM PASSWORD SNIFFING USING WIRESHARK
+
+Wireshark es un analizador de paquetes de red usado para capturar paquetes de red y mostrar datos del paquete en detalle. La herramienta usa Winpcap para capturar paquetes en su propia red. Captura trafico de red en vivo desde Ethernet, IEEE 802.11, PPP/HDLC, ATM Bluetooth, USB, Token Ring, Frame Relay y FDDI. Los archivos capturados pueden ser programaticamente editados via command-line. Un conjunto de filtros para datos personalizados muestra que puede ser refinado usando un filtro de muestra.
+
+Se puede por ejemplo entrar a una pagina web HTTP e introducir unas credenciales, y se pueden ver a traves de wireshark, aplicando un filtro como:
+
+http.request.method == POST
+
+
+
+
+
+En los servidores, en el Control Panel > System and security > Windows Tools > Remote Packet Capture Protocol v.0 (experimental).
+
+En Capture Options de Wireshark, click Manage Interfaces.
+
+
+
+
+
+TASK 2: ANALYZE A NETWORK USING THE OMNIPEEK NETWORK PROTOCOL ANALYZER
+
+Omnipeek Network protocol analyzer provee una visibilidad en tiempo real y análisis experto sobre cada parte de la red objetivo. Realiza análisis, profundiza y arregla cuellos de botella en el rendimiento a través de múltiples segmentos de red. Incluye plugins analíticos que proveen una visualización dirigida y capacidades de búsqueda.
+
+Se descarga en https://www.liveaction.com/products/omnipeek
+
+
+Luego se selecciona la interfaz, en la pestana Adapter de la ventana que aparece, y seguido de eso, aparece la pestana Capture 1:
+
+
+TASK 3: ANALYZE A NETWORK USING THE STEELCENTRAL PACKET ANALYZER
+
+SteelCentral Packet Analyzer provee una consola grafica para un analisis de paquetes de alta velocidad. Captura terabytes de paquetes de datos atravesando la red, leerlos, y mostrarlos en una GUI. Puede analizar registros multi-gigabyte de una traza presentada localmente o en pruebas remotas de SteelCentral NetShark (fisica, virual o inscrustada en SteelHeads), sin una gran transferencia de archivo, para identificar problemas de red anomalos o diagnosticar y hacer un troubleshoot complejo y y problemas de rendimiento de la aplicación hasta el nivel de bit.
+
+LABORATORIO 3: DETECT NETWORK SNIFFING
+
+Este laboratorio te ayuda a entender posibles técnicas defensivas usadas para defender una red objetivo contra ataques de sniffing.
+
+Un sniffer en una red solo captura datos y se ejecuta en modo promiscuo, así que no es fácil de detectar. El modo promiscuo permite a un dispositivo de red interceptar y leer cada paquete de red que llega. El sniffer no deja traza, debido a que no transmite datos. Así que para detectarlos es necesario hacer uso de varias técnicas y herramientas que se describen en este laboratorio. Algunas de estas tecnicas son:
+
+- Ping method: Identifica si un sistema en una red esta corriendo en modo promiscuo.
+- DNS method: Identifica sniffers en la red analizando el incremento de trafico de la red.
+- ARP method: Envia un ARP non-broadcast a todos los nodos en la red, un nodo en la red que se ejecuta en modo promiscuo almacenará en caché la dirección ARP local.
+
+TASK 1: DETECT ARP POISONING AND PROMISCUOUS MODE IN A SWITCH-BASED NETWORK
+
+El envenenamiento de ARP implica la falsificación de muchos paquetes de solicitud y respuesta de ARP para sobrecargar un conmutador. El envenenamiento de caché ARP es el método de atacar una red LAN mediante la actualización de la caché ARP de la computadora de destino con paquetes de solicitud y respuesta ARP falsificados diseñados para cambiar la dirección MAC Ethernet de Capa 2 (la de la tarjeta de red) a una que el atacante pueda
+monitorear. Los atacantes utilizan el envenenamiento ARP para olfatear la red de destino. Por lo tanto, los atacantes pueden robar información confidencial, evitar el acceso a la red y a la web, y realizar ataques DoS y MITM.
+
+El modo promiscuo permite que un dispositivo de red intercepte y lea cada paquete de red que llega
+en su totalidad. El sniffer cambia la NIC de un sistema al modo promiscuo, para que escuche todos los datos transmitidos en su segmento. Un sniffer puede monitorear constantemente todo el tráfico de red a una computadora a través de la NIC al decodificar la información encapsulada en el paquete de datos. El modo promiscuo en la red se puede detectar utilizando varias herramientas.
+
+El hacker ético y el pen tester deben evaluar la organización o el objetivo de la evaluación en busca de vulnerabilidades
+de envenenamiento por ARP.
+
+Aquí, detectaremos el envenenamiento de ARP en una red basada en conmutadores usando Wireshark y
+usaremos Nmap Scripting Engine (NSE) para verificar si un sistema en una Ethernet local tiene su tarjeta de red
+en modo promiscuo.
+
+
+El primer paso seria usar Cain & Abel para interceptar todo el trafico entre dos sistemas, realizando un ARP poisoning.
+
+El segundo paso es usar Wireshark.
+
+
+Luego de que fluyo trafico entre las dos maquinas, se detiene la captura de wireshark y se selecciona la opcion Analyze > Expert Information.
+
+
+Al seleccionar un paquete en la ventana de Expert Information, se pueden visualizar todos los detalles del paquete abajo en Wireshark.
+
+A medida que el paquete de solicitud y respuesta ARP falsificado encuentra un lugar en la memoria caché ARP de destino en este proceso. Como la respuesta ARP ha sido falsificada, la computadora de destino (objetivo) envía marcos a la computadora del atacante, donde el atacante puede modificar los marcos antes de enviarlos a la máquina de origen (Usuario A) en un ataque MITM. En este punto, el atacante puede lanzar un ataque DoS asociando una dirección MAC inexistente con la dirección IP de la puerta de enlace o puede rastrear pasivamente el tráfico y luego reenviarlo al destino objetivo.
+
+En nmap se puede detectar si un host esta en modo promiscuo con el uso de un script:
+```
+nmap --script=sniffer-detect [IP o IP range]
+```
+
+
+TASK 2: DETECT ARP POISONING USING THE CAPSA NETWORK ANALYZER
+
+Capsa, una herramienta portátil de diagnostico y análisis de rendimiento de la red, provee captura de paquetes y análisis de capacidades con una interfaz fácil de usar que permite a los usuarios proteger y monitorear redes en un entorno empresarial critico. Ayuda a los ethical hacker a detectar rápidamente un ARP poisoning y ARP flooding y localizar la fuente del ataque.
+
+Habu: Es un toolkit open-source de penetration testing que puede realizar varias tareas como ARP poisoning, ARP sniffing, DHCP starvation y DHCP discovers.
+
+
+Mientras tanto, en la Parrot se ejecuta el comando para llevar a cabo el ARP Poisoning:
+```
+habu.arp.poison [ip victima] [ip attacker]
+```
+
+
+Una vez que la resolucion de direcciones se complete se clickea OK.
+
+
+Ahora, para poder localizar la maquina Parrot, se selecciona Capture default debajo de Node Explorer:
+
+
+De manera similar se pueden ir explorando todas las pestanas de la herramienta, por ejemplo la pestana "Packets" para ver los paquetes que fueron transferidos por la IP de la Parrot.
